@@ -1,9 +1,15 @@
 const express = require('express'); //importamos express
 const routes = require('./routes');//importamos las rutas
-
+const path = require('path');//path ya lee lo que existe en las carpetas
 
 //crear una aplicacion de express
 const app = express();
+
+//habilitar pug
+app.set('view engine','pug');
+
+//añadir las carpetas de las vistas
+app.set('views',path.join(__dirname,'views'));
 
 app.use('/', routes());
 
